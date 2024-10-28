@@ -3,10 +3,10 @@ package com.sipriano.desafio_tres.controllers;
 import com.sipriano.desafio_tres.entities.Client;
 import com.sipriano.desafio_tres.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/clients")
@@ -20,5 +20,24 @@ public class ClientController {
         return service.findById(id);
     }
 
+    @GetMapping
+    public List<Client> findAll() {
+        return service.findAll();
+    }
+
+    @PostMapping
+    public Client insert(@RequestBody Client client) {
+        return service.insert(client);
+    }
+
+    @PutMapping(value = "/{id}")
+    public Client update(@PathVariable Long id, @RequestBody Client client) {
+        return service.update(id, client);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable Long id) {
+        service.delete(id);
+    }
 
 }
