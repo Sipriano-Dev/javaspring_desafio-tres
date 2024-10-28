@@ -23,7 +23,7 @@ public class ClientService {
     @Transactional(readOnly = true)
     public ClientDTO findById(Long id) {
         Optional<Client> clientOptional = repository.findById(id);
-        Client client = clientOptional.orElseThrow(() -> new NoSuchElementException("Elemento não encontrado!"));
+        Client client = clientOptional.orElseThrow(() -> new NoSuchElementException("Id não encontrado!"));
         return new ClientDTO(client);
     }
 
