@@ -3,6 +3,7 @@ package com.sipriano.desafio_tres.controllers;
 import com.sipriano.desafio_tres.entities.Client;
 import com.sipriano.desafio_tres.entities.ClientDTO;
 import com.sipriano.desafio_tres.services.ClientService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,14 +33,14 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<ClientDTO> insert(@RequestBody ClientDTO clientDTO) {
+    public ResponseEntity<ClientDTO> insert(@Valid @RequestBody ClientDTO clientDTO) {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(clientDTO.getId()).toUri();
         return ResponseEntity.created(uri).body(service.insert(clientDTO));
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ClientDTO> update(@PathVariable Long id, @RequestBody ClientDTO clientDTO) {
+    public ResponseEntity<ClientDTO> update(@PathVariable Long id,@Valid @RequestBody ClientDTO clientDTO) {
         return ResponseEntity.ok(service.update(id, clientDTO));
     }
 
