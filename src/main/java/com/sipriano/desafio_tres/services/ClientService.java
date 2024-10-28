@@ -4,6 +4,8 @@ import com.sipriano.desafio_tres.entities.Client;
 import com.sipriano.desafio_tres.entities.ClientDTO;
 import com.sipriano.desafio_tres.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,8 +28,8 @@ public class ClientService {
     }
 
     @Transactional(readOnly = true)
-    public List<ClientDTO> findAll() {
-         return repository.findAll().stream().map(ClientDTO::new).toList();
+    public Page<ClientDTO> findAll(Pageable pageable) {
+         return repository.findAll(pageable).map(ClientDTO::new);
     }
 
     @Transactional
