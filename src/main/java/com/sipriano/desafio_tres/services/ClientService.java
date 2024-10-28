@@ -1,6 +1,7 @@
 package com.sipriano.desafio_tres.services;
 
 import com.sipriano.desafio_tres.entities.Client;
+import com.sipriano.desafio_tres.entities.ClientDTO;
 import com.sipriano.desafio_tres.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,36 +19,42 @@ public class ClientService {
     ClientRepository repository;
 
     @Transactional(readOnly = true)
-    public Client findById(Long id) {
+    public ClientDTO findById(Long id) {
         Optional<Client> clientOptional = repository.findById(id);
         Client client = clientOptional.orElseThrow(() -> new NoSuchElementException("Elemento não encontrado!"));
-        return client;
+        return new ClientDTO(client);
     }
 
     @Transactional(readOnly = true)
-    public List<Client> findAll() {
-        return repository.findAll();
+    public List<ClientDTO> findAll() {
+         return repository.findAll().stream().map(ClientDTO::new).toList();
     }
 
     @Transactional
-    public Client insert(Client client) {
-        return repository.save(client);
+    public ClientDTO insert(ClientDTO clientDTO) {
+        Client client = new Client();
+        copyDTOToClient(clientDTO, client);
+        return new ClientDTO(repository.save(client));
     }
 
     @Transactional
-    public Client update(Long id, Client client) {
-        Client actualClient = repository.getReferenceById(id);
-        actualClient.setName(client.getName());
-        actualClient.setCpf(client.getCpf());
-        actualClient.setIncome(client.getIncome());
-        actualClient.setBirthDate(client.getBirthDate());
-        actualClient.setChildren(client.getChildren());
-        return repository.save(actualClient);
+    public ClientDTO update(Long id, ClientDTO clientDTO) {
+        Client client = repository.getReferenceById(id);
+        copyDTOToClient(clientDTO, client);
+        return new ClientDTO(repository.save(client));
     }
 
     @Transactional
     public void delete(Long id) {
         repository.deleteById(id);
+    }
+
+    private void copyDTOToClient(ClientDTO clientDTO, Client client) {
+        client.setName(clientDTO.getName());
+        client.setCpf(clientDTO.getCpf());
+        client.setIncome(clientDTO.getIncome());
+        client.setBirthDate(clientDTO.getBirthDate());
+        client.setChildren(clientDTO.getChildren());
     }
 
 }
