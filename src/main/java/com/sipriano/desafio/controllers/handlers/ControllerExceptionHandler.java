@@ -1,8 +1,8 @@
-package com.sipriano.desafio_tres.controllers.handlers;
+package com.sipriano.desafio.controllers.handlers;
 
-import com.sipriano.desafio_tres.entities.CustomError;
-import com.sipriano.desafio_tres.entities.ValidationError;
-import com.sipriano.desafio_tres.services.exceptions.IdNotFoundException;
+import com.sipriano.desafio.entities.CustomError;
+import com.sipriano.desafio.entities.ValidationError;
+import com.sipriano.desafio.services.exceptions.IdNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

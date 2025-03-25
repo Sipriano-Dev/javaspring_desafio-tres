@@ -1,9 +1,9 @@
-package com.sipriano.desafio_tres.services;
+package com.sipriano.desafio.services;
 
-import com.sipriano.desafio_tres.entities.Client;
-import com.sipriano.desafio_tres.entities.ClientDTO;
-import com.sipriano.desafio_tres.repository.ClientRepository;
-import com.sipriano.desafio_tres.services.exceptions.IdNotFoundException;
+import com.sipriano.desafio.entities.Client;
+import com.sipriano.desafio.entities.ClientDTO;
+import com.sipriano.desafio.repository.ClientRepository;
+import com.sipriano.desafio.services.exceptions.IdNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,9 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service

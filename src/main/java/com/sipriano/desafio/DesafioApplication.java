@@ -1,13 +1,13 @@
-package com.sipriano.desafio_tres;
+package com.sipriano.desafio;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DesafioTresApplication {
+public class DesafioApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DesafioTresApplication.class, args);
+		SpringApplication.run(DesafioApplication.class, args);
 	}
 
 }

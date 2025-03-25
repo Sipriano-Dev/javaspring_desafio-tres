@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sipriano</groupId>
-	<artifactId>desafio-tres</artifactId>
+	<artifactId>desafio-crud-clientes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>desafio-tres</name>
 	<description>Demo project for Spring Boot</description>

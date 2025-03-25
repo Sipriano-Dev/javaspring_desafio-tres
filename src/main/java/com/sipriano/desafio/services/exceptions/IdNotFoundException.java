@@ -1,4 +1,4 @@
-package com.sipriano.desafio_tres.services.exceptions;
+package com.sipriano.desafio.services.exceptions;
 
 public class IdNotFoundException extends RuntimeException{
 

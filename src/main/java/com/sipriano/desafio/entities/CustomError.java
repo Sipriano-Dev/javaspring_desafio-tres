@@ -1,4 +1,4 @@
-package com.sipriano.desafio_tres.entities;
+package com.sipriano.desafio.entities;
 
 import java.time.Instant;
 

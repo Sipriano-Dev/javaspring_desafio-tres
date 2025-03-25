@@ -1,6 +1,6 @@
-package com.sipriano.desafio_tres.repository;
+package com.sipriano.desafio.repository;
 
-import com.sipriano.desafio_tres.entities.Client;
+import com.sipriano.desafio.entities.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

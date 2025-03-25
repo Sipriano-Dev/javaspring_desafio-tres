@@ -1,19 +1,16 @@
-package com.sipriano.desafio_tres.controllers;
+package com.sipriano.desafio.controllers;
 
-import com.sipriano.desafio_tres.entities.Client;
-import com.sipriano.desafio_tres.entities.ClientDTO;
-import com.sipriano.desafio_tres.services.ClientService;
+import com.sipriano.desafio.entities.ClientDTO;
+import com.sipriano.desafio.services.ClientService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/clients")
